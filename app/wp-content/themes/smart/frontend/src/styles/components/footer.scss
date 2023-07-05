@@ -1,0 +1,123 @@
+.c-footer {
+  padding: px-to-rem(40) 0;
+  background: $c-lightBlack;
+
+  &__container {
+    @extend .container;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  &__logo, &__contacts, &__info {
+    padding: px-to-rem(40) 0;
+    width: 100%;
+  }
+
+  &__contacts {
+
+    &-title {
+      font-family: 'Oswald', sans-serif;
+      font-weight: 500;
+      font-size: px-to-rem(24);
+      line-height: 130%;
+      text-transform: uppercase;
+      color: $c-white;
+      text-align: left;
+      margin-bottom: px-to-rem(20);
+    }
+
+    &-item {
+      margin-bottom: px-to-rem(15);
+    }
+
+    &-link {
+      display: flex;
+      align-items: center;
+      font-family: 'Inter', sans-serif;
+      font-weight: 400;
+      font-size: px-to-rem(18);
+      line-height: 150%;
+      color: $c-white;
+      word-break: break-word;
+
+      svg {
+        margin-right: px-to-rem(17);
+      }
+
+      &--darkness {
+        opacity: 0.7;
+      }
+    }
+  }
+
+
+  &__info {
+    &-title {
+      font-weight: 500;
+      font-size: px-to-rem(24);
+      line-height: 130%;
+      margin-bottom: px-to-rem(15);
+    }
+  }
+
+  &__socials {
+    display: flex;
+    align-items: center;
+    gap: px-to-rem(20);
+    margin-bottom: px-to-rem(30);
+  }
+
+  &__copyright {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: px-to-rem(15);
+    line-height: 150%;
+    color: $c-white;
+    opacity: 0.7;
+  }
+
+  &__bottom {
+    padding-top: px-to-rem(30);
+    flex-direction: column;
+  }
+
+
+  @include media-breakpoint-up(lgl) {
+    &__logo, &__contacts, &__info {
+      border-bottom: none;
+      width: auto;
+    }
+    &__logo {
+      margin-right: auto;
+      padding: 0;
+    }
+    &__info {
+      margin-left: px-to-rem(103);
+    }
+    &__wrapper {
+      flex-direction: row;
+    }
+    &__contacts {
+
+      &-title {
+      }
+
+      &__link {
+
+      }
+    }
+    &__bottom {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    &__socials{
+      margin-bottom: 0;
+    }
+  }
+}

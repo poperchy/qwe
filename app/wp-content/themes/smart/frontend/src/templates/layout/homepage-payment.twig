@@ -1,0 +1,22 @@
+{% set body_template_class = 't-base' %}
+{% extends "layout/_index.twig" %}
+
+{% block template %}
+
+    {% include 'components/header-payment.twig' %}
+
+    <main class="t-base__main">
+        {% block content %}
+
+            {{ post.content }}
+
+        {% endblock %}
+    </main>
+
+    <footer class="t-base__footer">
+        {% block footer %}
+            {% include 'components/footer.twig' %}
+        {% endblock %}
+    </footer>
+
+{% endblock %}

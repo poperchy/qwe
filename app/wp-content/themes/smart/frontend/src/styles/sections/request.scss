@@ -1,0 +1,13 @@
+.s-request {
+  margin-top: 10%;
+  margin-bottom: 5%;
+  &__container {
+    @extend .container;
+  }
+
+  @include media-breakpoint-up(xl) {
+    &__inner {
+      display: flex;
+    }
+  }
+}

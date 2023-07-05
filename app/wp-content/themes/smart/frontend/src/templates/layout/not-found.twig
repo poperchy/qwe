@@ -1,0 +1,10 @@
+{% set body_template_class = 't-not-found' %}
+{% extends "layout/_index.twig" %}
+
+{% block template %}
+
+    <main class="t-not-found__main">
+        {% include 'sections/page-error.twig' %}
+    </main>
+
+{% endblock %}

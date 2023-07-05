@@ -1,0 +1,24 @@
+.s-request-form {
+  flex: 1 1 0;
+  margin-right: 147px;
+
+  @include media-breakpoint-down(lg) {
+    margin: 0;
+  }
+
+  @include media-breakpoint-down(sm) {
+    .el-subtitle {
+      margin-bottom: 30px;
+    }
+    & .el-checkbox__label {
+      font-size: $fs-base;
+    }
+  }
+}
+
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+  .s-request-form {
+    flex: 1 1 auto;
+  }
+}

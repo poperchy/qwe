@@ -1,0 +1,13 @@
+{
+  "name": "php/theme-smart",
+  "license": "MIT",
+  "description": "WordPress theme Smart",
+  "autoload": {
+    "psr-4": {
+      "Smart\\": "classes"
+    }
+  },
+  "scripts": {
+    "cs-fix": "php-cs-fixer fix classes --rules=@PSR12"
+  }
+}

@@ -1,0 +1,86 @@
+$checkmark-color: str-replace(#{$c-brand}, '#', '%23');
+$checkmark: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M20.0607 6.93934C20.6465 7.52513 20.6465 8.47487 20.0607 9.06066L11.0607 18.0607C10.5203 18.6011 9.65985 18.6488 9.06301 18.1713L4.06301 14.1713C3.41612 13.6538 3.31124 12.7099 3.82875 12.063C4.34627 11.4161 5.2902 11.3112 5.9371 11.8287L9.88873 14.99L17.9394 6.93934C18.5252 6.35355 19.4749 6.35355 20.0607 6.93934Z' fill='#{$checkmark-color}'/%3E%3C/svg%3E");
+
+.el-checkbox {
+  display: inline-block;
+  font-size: $fs-base;
+
+  &__field {
+    width: 0;
+    height: 0;
+    opacity: 0;
+    position: absolute;
+    overflow: hidden;
+  }
+
+  &__label {
+    display: inline-block;
+    font-weight: 400;
+    position: relative;
+    padding-left: 40px;
+    min-height: 1.2em;
+    cursor: pointer;
+    line-height: 1.7em;
+    text-align: left;
+    vertical-align: top;
+
+    &:before {
+      content: '';
+      display: block;
+      margin-top: 0.2em;
+      border: 1px solid  $c-brand;
+      width: 24px;
+      height: 24px;
+      background-color: rgba($c-white, 0.15);
+      border-radius: 2px;
+      background-size: 100%;
+      color: transparent;
+      font-weight: bold;
+      text-align: center;
+      font-size: 0.8em;
+      line-height: 1.375em;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-color 0.3s ease, border 0.3s ease;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+
+    a {
+      box-shadow: none;
+      text-decoration: underline;
+      color: inherit;
+
+      &:focus {
+          outline: 0;
+      }
+    }
+
+    a:focus &-focus {
+        outline: 2px solid $c-focus;
+        outline-offset: 3px;
+    }
+
+  }
+
+  &__field:checked ~ &__label:before {
+    color: $c-white;
+    background-clip: padding-box;
+    background-image: $checkmark;
+    //background-color: rgba($c-white, 0.15);
+  }
+
+  &__field:focus ~ &__label:before {
+    border-color: $c-accent;
+  }
+
+  &__label:hover:before {
+    border-color:  $c-accent;
+  }
+
+  @include media-breakpoint-down(md) {
+    font-size: 18px;
+  }
+}

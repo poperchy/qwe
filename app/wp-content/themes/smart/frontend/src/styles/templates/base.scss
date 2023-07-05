@@ -1,0 +1,12 @@
+.t-base {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  &__main {
+    flex: 1 0 auto;
+    overflow-x: hidden;
+  }
+  &__footer {
+    flex: 0 0 auto;
+  }
+}

@@ -1,0 +1,115 @@
+.s-slider {
+  background: $c-light-black;
+  border-bottom: 1px solid $c-light-black;
+  padding-top: px-to-rem(90);
+  padding-bottom: px-to-rem(100);
+
+  &__container {
+    @extend .container;
+  }
+
+
+  &__title {
+    font-weight: 600;
+    font-size: px-to-rem(40);
+    line-height: 110%;
+    text-align: center;
+    max-width: px-to-rem(1010);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: px-to-rem(20);
+  }
+
+  &__text {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: px-to-rem(18);
+    line-height: 150%;
+    text-align: center;
+    color: $c-white;
+    opacity: 0.8;
+    max-width: px-to-rem(1010);
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: px-to-rem(20);
+  }
+
+  &__pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: px-to-rem(20);
+  }
+
+  .swiper-pagination {
+    position: relative;
+    width: auto;
+    height: px-to-rem(44);
+    display: flex;
+    align-items: center;
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+
+    span {
+      font-family: 'Inter', sans-serif;
+      font-style: normal;
+      font-weight: 400;
+      font-size: px-to-rem(18);
+      line-height: 150%;
+      color: $c-white;
+      opacity: 0.5;
+      margin: 0 px-to-rem(3);
+    }
+
+    .swiper-pagination-current {
+      opacity: 0.9;
+    }
+
+  }
+
+  .swiper-button-next, .swiper-button-prev {
+    position: relative;
+    left: unset;
+    right: unset;
+    top: unset;
+    bottom: unset;
+    width: px-to-rem(45);
+    margin: 0 px-to-rem(10);
+
+    &:after {
+      content: none;
+    }
+  }
+
+  .swiper-button-next {
+  }
+
+  .swiper-button-prev {
+    transform: rotate(180deg);
+  }
+
+  .swiper.mySwiper {
+    overflow: unset;
+
+    .swiper-slide {
+      height: px-to-rem(370);
+      width: px-to-rem(370);
+      overflow: hidden;
+
+      img {
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lgl){
+    &__title {
+      font-size: px-to-rem(48);
+    }
+
+  }
+}

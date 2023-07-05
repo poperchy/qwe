@@ -1,0 +1,12 @@
+.s-base {
+  &__container {
+    @extend .container;
+  }
+
+  @include media-breakpoint-up(md){
+    &__links {
+      margin-top: 20px;
+    }
+  }
+
+}

@@ -1,0 +1,28 @@
+.s-breadcrumbs {
+  padding-top: px-to-rem(130);
+  padding-bottom: px-to-rem(30);
+
+  &__container {
+    @extend .container
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: px-to-rem(16);
+    line-height: 150%;
+    color: $c-text-black;
+    margin:  0 px-to-rem(7);
+
+    &.active {
+      color: $c-brand;
+    }
+  }
+}
+

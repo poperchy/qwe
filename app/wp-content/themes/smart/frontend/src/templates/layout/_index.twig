@@ -1,0 +1,53 @@
+<!doctype html>
+<html {{ site.language_attributes }}>
+    <head>
+        <meta charset="{{ site.charset }}" />
+        <meta name="description" content="{{ site.description }}">
+        <title>{{ function('wp_title', '', false) ?: function('get_bloginfo', 'name') }}</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="styles/libraries/swiper-bundle.min.css">
+        <link rel="preload" href="../../fonts/Inter-Regular.woff2"  as="font" type="font/otf" crossorigin="">
+        <link rel="preload" href="../../fonts/Inter-Bold.woff2"  as="font" type="font/otf" crossorigin="">
+        <link rel="preload" href="../../fonts/Oswald-Regular.woff2"  as="font" type="font/otf" crossorigin="">
+        <link rel="preload" href="../../fonts/Inter-Light.woff2"  as="font" type="font/otf" crossorigin="">
+
+
+        {% if not isGulpTwig %}
+            {{function('wp_head')}}
+        {% else %}
+            <link rel="stylesheet" href="styles/style.css" type="text/css" media="screen" />
+        {% endif %}
+
+
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Montserrat-Medium.woff2" as="font"#}
+              {#crossorigin="anonymous">#}
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Poppins-Bold.woff2" as="font" crossorigin="anonymous">#}
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Poppins-Light.woff2" as="font" crossorigin="anonymous">#}
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Poppins-Medium.woff2" as="font" crossorigin="anonymous">#}
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Poppins-Regular.woff2" as="font" crossorigin="anonymous">#}
+        {#<link rel="preload" href="{{ frontend_public_uri }}/fonts/Poppins-SemiBold.woff2" as="font" crossorigin="anonymous">#}
+
+        {% block head %} {% endblock %}
+
+    </head>
+
+    <body class="body {{ body_template_class }} {{ body_class }}">
+
+    {% block template %}
+        {{ content }}
+    {% endblock %}
+
+
+    {% block scripts %}
+        {% if not isGulpTwig %}
+            {{function('wp_footer')}}
+        {% else %}
+            <script src="js/libraries.js"></script>
+            <script src="js/scripts.js"></script>
+        {% endif %}
+    {% endblock %}
+
+    </body>
+</html>

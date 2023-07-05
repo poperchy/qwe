@@ -1,0 +1,49 @@
+.el-go-next {
+  display: none;
+  position: absolute;
+  bottom: 0;
+  padding: 1.6em;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  left: 50%;
+  margin-left: -3em;
+  width: 6em;
+  cursor: pointer;
+  outline: none;
+  overflow: hidden;
+  text-indent: 999999px;
+  white-space: nowrap;
+  color: $c-accent;
+  transition: color 0.3s ease;
+  z-index: 90;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 1.2em;
+    height: 1.2em;
+    border-right: 3px solid currentColor;
+    border-bottom: 3px solid currentColor;
+    transform-origin: center;
+    border-radius: 2px;
+    transform: rotate(40deg) skew(-10deg);
+    left: 50%;
+    margin-left: -0.6em;
+    top: 0;
+    transition: top 0.3s ease, color 0.3s ease;
+  }
+  &:hover {
+    &:before {
+      top: 0.5em;
+    }
+  }
+  &:focus,
+  &:active {
+    color: $c-brand;
+  }
+
+  @include media-breakpoint-up(sm) {
+    display: block;
+  }
+}

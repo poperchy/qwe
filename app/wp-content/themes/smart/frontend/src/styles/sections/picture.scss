@@ -1,0 +1,40 @@
+.s-picture {
+  margin-top: 6%;
+  margin-bottom: 2%;
+
+  &__container {
+    @extend .container;
+  }
+
+  &__text {
+    max-width: $s-small-width;
+    @include contentPadding();
+    margin: 0 auto;
+
+    &-title {
+      font-size: $fs-text;
+      padding: 0;
+      margin-bottom: px-to-rem(9);
+      text-align: center;
+    }
+
+  }
+
+  .el-wysiwyg {
+    p {
+      font-size: $fs-base;
+      color: $c-text-grey;
+      text-align: center;
+      padding: 0;
+      margin-bottom: px-to-rem(9);
+    }
+  }
+
+  &__wrapper {
+    margin-top: px-to-rem(24);
+
+    & img {
+      max-width: 100%;
+    }
+  }
+}

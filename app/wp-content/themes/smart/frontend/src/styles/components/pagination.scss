@@ -1,0 +1,43 @@
+.c-pagination {
+  &__list {
+    padding-bottom: px-to-rem(80);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: px-to-rem(20);
+    line-height: 150%;
+    text-align: center;
+    color: $c-lightBlack;
+    opacity: 0.5;
+
+    margin: 0 px-to-rem(10);
+
+    &.active {
+      opacity: 1;
+    }
+
+    &--prev {
+      transform: rotate(180deg);
+
+    }
+
+    &--prev, &--next {
+      margin: 0 px-to-rem(14);
+
+      svg {
+        path {
+          fill: $c-lightBlack
+        }
+      }
+    }
+  }
+}

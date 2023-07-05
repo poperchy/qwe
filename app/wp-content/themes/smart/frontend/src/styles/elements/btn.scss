@@ -1,0 +1,159 @@
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-border {
+  border: 1px solid $c-white;
+  border-radius: 8px;
+  padding: 10px 28px;
+  text-transform: uppercase;
+
+  &--red {
+    color: $c-brand;
+    border-color: $c-brand;
+
+    svg {
+      path {
+        fill: $c-brand;
+      }
+    }
+  }
+
+  &--share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid $c-brand;
+    border-radius: px-to-rem(6);
+    width: px-to-rem(140);
+    height: px-to-rem(47);
+    transition: background .3s;
+
+    &:hover {
+      background: rgba(220, 45, 42, 0.15);
+      transition: background .3s;
+    }
+
+    svg {
+      margin-right: px-to-rem(10);
+    }
+  }
+
+  svg {
+    margin-left: 10px;
+  }
+}
+
+.btn--paypal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px 32px;
+  width: 325px;
+  height: 50px;
+  background: #FFE5A3;
+  border-radius: 4px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  transition: .3s;
+
+
+  &:hover {
+    background: #FFD466;
+    transition: .3s;
+  }
+}
+
+.btn-brand {
+  max-width: 173px;
+  width: 100%;
+  background: $c-brand;
+  border-radius: 8px;
+  padding: 10px 28px;
+  border: 1px solid $c-brand;
+  color: $c-white !important;
+  font-weight: 700;
+
+  svg {
+    margin-left: 10px;
+  }
+
+}
+
+.btn-burger {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 40px;
+  height: 40px;
+
+  span {
+    width: 29px;
+    height: 3px;
+    display: block;
+    background: $c-white;
+    transition: 0.3s;
+
+  }
+
+  &.active {
+    span {
+      position: absolute;
+      background: $c-black;
+
+      &:first-child {
+        top: 50%;
+        transform: rotate(-45deg);
+        transition: 0.1s;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transition: 0.1s;
+
+      }
+
+      &:last-child {
+        top: 50%;
+        transform: rotate(45deg);
+        transition: 0.1s;
+      }
+    }
+  }
+
+  &-close {
+    position: absolute;
+    top: 28px;
+    right: 20px;
+
+    span {
+      position: absolute;
+      background: $c-black;
+
+      &:first-child {
+        top: 50%;
+        transform: rotate(-45deg);
+        transition: 0.1s;
+      }
+
+      &:nth-child(2) {
+        opacity: 0;
+        transition: 0.1s;
+
+      }
+
+      &:last-child {
+        top: 50%;
+        transform: rotate(45deg);
+        transition: 0.1s;
+      }
+    }
+  }
+
+  @include media-breakpoint-up(lgl) {
+    display: none;
+  }
+}
+

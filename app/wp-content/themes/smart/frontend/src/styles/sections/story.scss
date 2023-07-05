@@ -1,0 +1,132 @@
+.s-story {
+  padding: px-to-rem(80) 0 px-to-rem(90) 0;
+
+  &__container {
+    @extend .container;
+  }
+
+  &__date {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    font-size: px-to-rem(18);
+    line-height: 150%;
+    text-align: center;
+    color: $c-border;
+    margin: px-to-rem(10) 0 px-to-rem(16) 0;
+  }
+
+  &__links {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-style: normal;
+    font-size: px-to-rem(20);
+    line-height: 150%;
+    color: $c-border;
+    margin-bottom: px-to-rem(44);
+
+    &-item {
+      margin-right: px-to-rem(40);
+
+      &.active {
+        color: $c-lightBlack;
+        border-bottom: 2px solid #DC2D2A;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    max-width: px-to-rem(1089);
+    margin: 0 auto px-to-rem(50) auto;
+    text-align: center;
+  }
+
+  &__about-title {
+    color: $c-lightBlack;
+    font-size: px-to-rem(48);
+    margin-bottom: px-to-rem(20);
+  }
+
+  &__about-text {
+    margin-bottom: px-to-rem(20);
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: px-to-rem(18);
+    line-height: 150%;
+    color: $c-text-black;
+  }
+
+  &__about-link {
+    font-family: 'Inter', sans-serif;
+    font-weight: 700;
+    font-size: px-to-rem(18);
+    line-height: 150%;
+  }
+
+  &__list {
+    display: flex;
+    gap: px-to-rem(8);
+    flex-wrap: wrap;
+    margin-top: px-to-rem(50);
+    justify-content: center;
+  }
+
+  &__item {
+    max-width: px-to-rem(318);
+    height: px-to-rem(389);
+    background: $c-text-bright;
+    border-radius: 8px;
+    padding: px-to-rem(6);
+    padding-bottom: px-to-rem(20);
+    transition: transform .3s;
+    flex: 1 0 100%;
+    margin-bottom: px-to-rem(15);
+
+    &--auto {
+      height: auto;
+    }
+
+    &:hover {
+      transform: translateY(px-to-rem(-20));
+      transition: transform .3s;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+    font-size: px-to-rem(32);
+    line-height: 130%;
+    margin-top: px-to-rem(16);
+    margin-bottom: px-to-rem(26);
+  }
+
+  &__link {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    font-size: px-to-rem(18);
+    line-height: 150%;
+    text-transform: uppercase;
+    color: $c-brand;
+    text-align: center;
+    display: block;
+
+    svg {
+      margin-left: px-to-rem(15);
+
+      path {
+        fill: $c-brand;
+      }
+    }
+  }
+}

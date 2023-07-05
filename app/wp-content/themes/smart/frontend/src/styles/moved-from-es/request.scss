@@ -1,0 +1,159 @@
+.b-request {
+  padding-bottom: 20px;
+
+
+  &-info {
+   // display: flex;
+    flex: 0 0 300px;
+    border-top: 2px solid rgba($c-white, 0.2);
+    margin-top: 60px;
+    order: 1;
+    font-size: $fs-text;
+    line-height: 1.6;
+    a {
+      box-shadow: none;
+    }
+
+    &__location {
+      @extend .type-4;
+    }
+
+    &__name {
+      font-weight: bold;
+    }
+
+    &__address {
+        margin-bottom: 24px;
+    }
+
+    &__item {
+      white-space: nowrap;
+      margin-bottom: 20px;
+      .el-icon {
+        vertical-align: middle;
+        margin-right: 1em;
+      }
+    }
+
+  }
+
+  &-form {
+    flex: 1 1 auto;
+    min-width: 0;
+    order: 2;
+    text-align: center;
+    h3 {
+      color: $c-second;
+      text-align: left;
+    }
+  }
+
+  &-section {
+    margin-top: 40px;
+    padding-right: 20px;
+    max-width: 240px;
+    a {
+      box-shadow: none;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
+
+    &--common {
+      margin-left: auto;
+      border-top: 2px solid rgba($c-white, 0.2);
+      padding-top: 40px;
+      max-width: 100%;
+    }
+  }
+
+
+  @include media-breakpoint-up(sm) {
+    padding-bottom: 25px;
+
+
+    &-info {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &-section {
+      flex: 1 1 50%;
+      max-width: none;
+      margin-top: 50px;
+      &--common {
+        flex: 1 1 100%;
+        text-align: center;
+        padding-top: 50px;
+        margin-top: 10px;
+      }
+    }
+
+  }
+
+  @include media-breakpoint-up(md) {
+
+    &__inner {
+      margin-top: 30px;
+    }
+
+  }
+
+  @include media-breakpoint-up(lg) {
+    padding-bottom: 70px;
+    &-info {
+      flex-wrap: nowrap;
+    }
+
+    &-section {
+      margin-top: 60px;
+      margin-right: 20px;
+
+      &--common {
+        border: none;
+        margin-left: auto;
+        margin-right: 0;
+        flex: 1 1 auto;
+        text-align: left;
+        padding-top: 0;
+        margin-top: 60px;
+      }
+    }
+
+  }
+
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 120px;
+
+    &__inner {
+      display: flex;
+      align-items: flex-start;
+    }
+
+    &-info {
+      padding-top: 30px;
+      margin-right: 90px;
+      margin-top: 18px;
+      display: block;
+      border-color: $c-white;
+
+    }
+
+    &-form {
+      text-align: left;
+    }
+
+    &-section {
+      max-width: none;
+      padding-bottom: 10px;
+      margin-top: 30px;
+
+      &--common {
+        text-align: left;
+      }
+    }
+
+  }
+
+}

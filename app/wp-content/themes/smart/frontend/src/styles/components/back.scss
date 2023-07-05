@@ -1,0 +1,52 @@
+.c-back {
+  @include contentPadding();
+  padding-top: px-to-rem(20);
+  padding-bottom: px-to-rem(20);
+
+  &__link {
+    display: inline-block;
+    padding: px-to-rem(7);
+    height: 100%;
+    box-shadow: none;
+    font-size: $fs-small;
+    transition: background-color 0.3s ease;
+
+    .no-touch-device &:hover {
+      background-color: $c-hover;
+    }
+
+  }
+  &__text {
+    font-weight: bold;
+    line-height: 1.8;
+    color: $c-text-back;
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  &__arrow {
+    color: $c-text-back;
+    line-height: 1;
+    vertical-align: top;
+    margin: 0.3rem;
+  }
+
+  @include media-breakpoint-up(xxl) {
+    position: fixed;
+    top: $s-header-height;
+    left: 0;
+    height: 100%;
+    padding: 0;
+
+    &__link {
+      padding: px-to-rem(28);
+      min-width: px-to-rem(120);
+      display: block;
+      height: 100%;
+    }
+    &__arrow {
+      margin-left: 0;
+    }
+
+  }
+}

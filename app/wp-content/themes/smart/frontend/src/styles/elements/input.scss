@@ -1,0 +1,112 @@
+$input-radius: 0;
+$input-height: 2.85em;
+$textarea-height: 2.85em;
+
+.el-input {
+  display: inline-block;
+  margin: 0;
+  text-align: left;
+  font-size: $fs-text;
+  color: inherit;
+  position: relative;
+  width: 100%;
+  padding-top: 1rem;
+
+  &__field {
+    display: block;
+    width: 100%;
+    color: inherit;
+    border: none;
+    border-bottom: 2px solid $c-border;
+    border-radius: $input-radius;
+    padding: 0 60px px-to-rem(12) 0;
+    font-weight: 500;
+    font-size: 1em;
+    line-height: 1.16;
+    transition: background-color 0.3s ease, border 0.3s ease;
+    position: relative;
+    z-index: 15;
+    box-shadow: none;
+    outline: none;
+    background: transparent;
+
+    &[type="text"] {
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      background-clip: padding-box;
+    }
+
+    &:-webkit-autofill,
+    &:-webkit-autofill:hover {
+      background-color: rgba($c-white, 0);
+      -webkit-box-shadow: 0 0 0 1000px rgba($c-white, 0) inset;
+      -webkit-text-fill-color: $c-text;
+      transition: background-color 50000s ease-in-out 0s;
+    }
+
+    &:-webkit-autofill:active,
+    &:-webkit-autofill:focus {
+      -webkit-text-fill-color: $c-text;
+      -webkit-box-shadow: 0 0 0 1000px rgba($c-white, 0) inset;
+      transition: background-color 50000s ease-in-out 0s;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $c-brand;
+      background: transparent;
+      outline: none;
+    }
+
+    &[readonly] {
+      opacity: 0.7;
+      cursor: text !important;
+    }
+
+    &--textarea {
+      height: $textarea-height;
+      resize: none;
+    }
+  }
+
+  &__label {
+    cursor: text;
+    overflow: hidden;
+    z-index: 6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: font-size 0.3s ease, color 0.3s ease, background-color 0.3s ease, border 0.3s ease, padding-top 0.3s ease;
+    width: 100%;
+    height: 100%;
+    border-bottom: 2px solid transparent;
+    background: rgba($c-white, 0.15);
+    padding: 1rem 0 1em;
+    font-weight: 500;
+    font-size: $fs-text;
+    opacity: 1;
+    display: block;
+    line-height: 1.16;
+    border-radius: $input-radius;
+
+    &:focus,
+    &:active {
+      outline: none;
+    }
+  }
+
+  &__field:focus ~ &__label,
+  &__field:active ~ &__label,
+  &__field.hasValue ~ &__label {
+    background: transparent;
+    font-size: $fs-tiny;
+    opacity: 0.6;
+    padding-top: 0;
+  }
+
+  &.error &__field,
+  .error &__field {
+    border-color: $c-error;
+  }
+}

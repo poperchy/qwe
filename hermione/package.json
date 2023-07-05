@@ -1,0 +1,10 @@
+{
+  "name": "hermione",
+  "version": "1.0.0",
+  "dependencies": {
+    "chai": "^4.3.4",
+    "hermione": "^4.4.0",
+    "html-reporter": "^7.1.0",
+    "selenium-standalone": "^7.1.0"
+  }
+}

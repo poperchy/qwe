@@ -1,0 +1,17 @@
+{
+  "isGulpTwig": true,
+  "site": {
+      "language_attributes": "lang='ru-RU'",
+      "description": "",
+      "theme": {
+          "link": "/"
+      },
+      "pingback_url": "http://safepin.loc/xmlrpc.php",
+      "url": "/",
+      "name": "russeldesign"
+  },
+  "menu": {
+      "get_items": []
+  },
+  "frontend_public_uri": "./"
+}

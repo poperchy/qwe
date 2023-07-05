@@ -1,0 +1,66 @@
+.s-image-text {
+  padding-top: px-to-rem(60);
+  padding-bottom: px-to-rem(60);
+  @extend .container;
+
+  &__text {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  &__title {
+    margin-bottom: px-to-rem(20);
+    font-size: px-to-rem(40);
+    text-align: center;
+  }
+
+  &__desc {
+    font-size: px-to-rem(16);
+  }
+
+  &__img {
+    margin-bottom: px-to-rem(20);
+    object-fit: contain;
+  }
+
+  @include media-breakpoint-up(lgl) {
+    padding-top: px-to-rem(80);
+    padding-bottom: px-to-rem(90);
+    &__container {
+      display: flex;
+    }
+    &__text {
+      flex-direction: column;
+      margin-right: px-to-rem(71);
+      margin-top: px-to-rem(20);
+      max-width: px-to-rem(675);
+    }
+    &__title {
+      margin-bottom: px-to-rem(50);
+      font-size: px-to-rem(48);
+      text-align: left;
+    }
+    &__desc {
+      font-size: px-to-rem(18);
+      text-align: left;
+    }
+    &__img {
+      max-width: px-to-rem(600);
+    }
+  }
+  @include media-breakpoint-up(xl) {
+    &__text {
+      margin-right: px-to-rem(71);
+    }
+
+  }
+  @include media-breakpoint-up(xxl) {
+    &__text {
+      margin-right: px-to-rem(155);
+      max-width: px-to-rem(675)
+    }
+    &__img {
+      max-width: unset;
+    }
+  }
+}

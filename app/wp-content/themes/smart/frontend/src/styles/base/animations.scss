@@ -1,0 +1,84 @@
+@keyframes floating-right {
+  0% {
+    transform: translate(0, 0)  rotate(0);
+  }
+  60% {
+    transform: translate(10px, -15px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+
+@keyframes floating-left {
+  0% {
+    transform: translate(0, 0)  rotate(0);
+  }
+  60% {
+    transform: translate(-20px, -10px) rotate(-4deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+
+@keyframes flickering {
+  0% {
+    fill: #B0B0CC;
+  }
+  50% {
+    fill: #fff;
+  }
+  60% {
+    fill: #fff;
+  }
+  100% {
+    fill: #8F80B4;
+  }
+}
+
+
+
+@keyframes flame-right-float {
+  0% {
+    transform:  rotate(0);
+  }
+  60% {
+    transform: rotate(-.12deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes flame-left-float {
+  0% {
+    transform:  rotate(0);
+  }
+  60% {
+    transform: rotate(.12deg);
+  }
+  100% {
+    transform: rotate(0);
+  }
+}
+
+@keyframes rocket-floating {
+  0% {
+    transform:  rotate(0);
+  }
+  20% {
+    transform: rotate(.12deg) translate(-.1%, -.1%);
+  }
+  60% {
+    transform: rotate(-.12deg) translate(-.5%, -5%);
+  }
+  80% {
+    transform: rotate(0) translate( -1%, -1%) ;
+  }
+  100% {
+    transform: rotate(0) translate( 0%, 0%);
+  }
+}

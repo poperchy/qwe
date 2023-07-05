@@ -1,0 +1,43 @@
+.el-file {
+  text-align: left;
+  position: relative;
+  color: rgba($c-text, 0.6);
+  &__icon {
+    position: absolute;
+    font-size: 1.4em;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    transition: color 0.3s ease;
+  }
+  &__field {
+    position: absolute;
+    font-size: 1px;
+    opacity: 0;
+  //  visibility: hidden;
+    width: 1em;
+    height: 1em;
+    overflow: hidden;
+  }
+  &__label {
+    padding-left: 2.5em;
+    font-weight: 500;
+    cursor: pointer;
+    position: relative;
+    z-index: 2;
+    transition: color 0.3s ease;
+    &:hover {
+      color: $c-accent;
+    }
+  }
+
+  &__label:hover ~ &__icon {
+    color: $c-accent;
+  }
+
+  &__field:focus ~ &__icon,
+  &__field:focus ~ &__label {
+    color: $c-accent;
+  }
+
+}

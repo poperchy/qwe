@@ -1,0 +1,66 @@
+upstream php {
+    server wordpress:9000;
+}
+server {
+    gzip on;
+    gzip_comp_level 5;
+    gzip_disable "msie6";
+    gzip_types text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript application/javascript image/svg+xml;
+    gzip_proxied any;
+    listen ${NGINX_PORT} default_server;
+    server_name _;
+    root ${NGINX_ROOT};
+    index index.php index.html index.htm;
+    access_log /dev/stdout;
+    error_log /dev/stdout info;
+    client_body_timeout 3000;
+    client_max_body_size 300m;
+
+    location / {
+       try_files $uri $uri/ /index.php?$args;
+    }
+
+    location = /favicon.ico {
+        log_not_found off;
+        access_log off;
+    }
+
+    location = /robots.txt {
+        allow all;
+        log_not_found off;
+        access_log off;
+    }
+
+    location ~ /\. {
+        access_log off;
+        log_not_found off;
+        deny all;
+    }
+
+    location ~* /(?:uploads|files)/.*\.php$ {
+        deny all;
+    }
+
+    location ~* .(ogg|ogv|svg|svgz|eot|otf|woff|mp4|ttf|css|rss|atom|js|jpg|jpeg|gif|png|ico|zip|tgz|gz|rar|bz2|doc|xls|exe|ppt|tar|mid|midi|wav|bmp|rtf)$ {
+        expires max;
+        log_not_found off;
+        access_log off;
+    }
+
+    location ~ ^/composer\.(json|lock) {
+        return 401;
+    }
+
+    location /vendor {
+        return 401;
+    }
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_index index.php;
+        fastcgi_pass php;
+        include fastcgi_params;
+        fastcgi_read_timeout 300;
+    }
+}

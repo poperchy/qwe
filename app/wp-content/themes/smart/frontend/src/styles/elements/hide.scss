@@ -1,0 +1,14 @@
+.el-hide {
+  &-d {
+    @include media-breakpoint-up(lgl) {
+      display: none;
+    }
+  }
+
+  &-m {
+    display: none;
+    @include media-breakpoint-up(lgl) {
+      display: block;
+    }
+  }
+}

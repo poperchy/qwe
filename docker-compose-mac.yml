@@ -1,0 +1,91 @@
+version: "3.7"
+
+services:
+
+  db:
+    image: mysql:8.0.26
+    platform: linux/x86_64
+    container_name: wordpress-starter-kit-mysql
+    command: --sort_buffer_size=512K --wait_timeout=800 --max_allowed_packet=512M --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci --default-authentication-plugin=mysql_native_password
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+      - ./docker/mysql/dump:/docker-entrypoint-initdb.d
+    ports:
+      - ${MYSQL_PORT}:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - app-network
+
+  wordpress:
+    image: starterkit:1.0.1
+    container_name: wordpress-starter-kit-wordpress
+    depends_on:
+      - db
+    build:
+      context: ./docker/php
+      args:
+        PROJECT_FILES: ${PROJECT_FILES}
+        PHP_VERSION: ${PHP_VERSION}
+        WORDPRESS_VERSION: ${WORDPRESS_VERSION}
+        USER_ID: ${USER_ID}
+    volumes:
+      - ./app:${PROJECT_FILES}
+      - ./docker/php/conf.ini:/usr/local/etc/php/conf.d/conf.ini
+    environment:
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE}
+      WORDPRESS_DB_HOST: db
+      WORDPRESS_DB_USER: ${MYSQL_USER}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG}
+      WORDPRESS_TEST_ENV: ${WORDPRESS_TEST_ENV}
+      WORDPRESS_URL: ${WORDPRESS_URL}
+      WORDPRESS_PORT: ${MYSQL_PORT}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'FS_METHOD', 'direct' );
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:1.19-alpine
+    platform: linux/x86_64
+    container_name: wordpress-starter-kit-nginx
+    depends_on:
+      - wordpress
+    volumes:
+      - ./app:${PROJECT_FILES}
+      - ./docker/nginx/templates:/etc/nginx/templates
+    environment:
+      NGINX_ROOT: ${PROJECT_FILES}
+      NGINX_PORT: 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nginx.rule=Host(`${BASE_URL}`)"
+      - "traefik.http.routers.nginx.entrypoints=web"
+    networks:
+      - app-network
+
+  traefik:
+    image: traefik:v2.3
+    platform: linux/x86_64
+    container_name: wordpress-starter-kit-traefik
+    depends_on:
+      - nginx
+    command:
+      - "--api.insecure=true"
+      - "--providers.docker=true"
+      - "--providers.docker.exposedbydefault=false"
+      - "--entrypoints.web.address=:80"
+    ports:
+      - ${TRAEFIK_PORT}:80
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

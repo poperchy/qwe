@@ -1,0 +1,43 @@
+// Typography
+
+// Fonts:
+$font-base: 'Inter', sans-serif;
+//$font-accent: 'Montserrat', sans-serif;
+
+
+// Font sizes:
+$fs-base: px-to-rem(16);
+$fs-text: px-to-rem(18);
+$fs-small: px-to-rem(14);
+$fs-tiny: px-to-rem(12);
+
+$fs-header: (
+        xs: 24px,
+        md: 40px,
+);
+$fs-title-1: (
+        xs: 36px,
+        md: 44px,
+        xl: 48px
+);
+
+$fs-title-2: (
+        xs: 32px,
+        md: 38px,
+        xl: 42px
+);
+
+$fs-title-3: (
+        xs: 22px,
+        md: 24px,
+        xl: 28px
+);
+
+$fs-title-sm: (
+        xs: 20px,
+        md: 22px
+);
+
+$fs-title-4: px-to-rem(24);
+$fs-title-extra: px-to-rem(26);
+$fs-title-max: px-to-rem(32);
